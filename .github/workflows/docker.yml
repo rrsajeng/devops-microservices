@@ -1,13 +1,17 @@
-name: Docker CI
+name: Simple Docker Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Build Docker image
-        run: docker build -t my image.
+        run: docker build -t my-node-app .
